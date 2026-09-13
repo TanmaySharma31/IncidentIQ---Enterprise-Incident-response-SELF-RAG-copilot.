@@ -10,15 +10,15 @@ ROOT = Path(__file__).resolve().parent.parent
 
 
 class Settings(BaseModel):
-    # OpenAI
-    openai_api_key: str = os.getenv("OPENAI_API_KEY", "")
-    openai_model: str = os.getenv("OPENAI_MODEL", "gpt-5-mini")
-    embedding_model: str = os.getenv("EMBEDDING_MODEL", "text-embedding-3-large")
-    embedding_dimension: int = int(os.getenv("EMBEDDING_DIMENSION", "3072"))
+    # Gemini
+    gemini_api_key: str = os.getenv("GEMINI_API_KEY", "")
+    llm_model: str = os.getenv("LLM_MODEL", "gemini-2.5-flash")
+    embedding_model: str = os.getenv("EMBEDDING_MODEL", "gemini-embedding-001")
+    embedding_dimension: int = int(os.getenv("EMBEDDING_DIMENSION", "768"))
 
     # Pinecone
     pinecone_api_key: str = os.getenv("PINECONE_API_KEY", "")
-    pinecone_index_name: str = os.getenv("PINECONE_INDEX_NAME", "cloudops-sentinel-openai-self-rag")
+    pinecone_index_name: str = os.getenv("PINECONE_INDEX_NAME", "incidentiq-gemini-self-rag")
     pinecone_namespace: str = os.getenv("PINECONE_NAMESPACE", "incident-runbooks")
     pinecone_cloud: str = os.getenv("PINECONE_CLOUD", "aws")
     pinecone_region: str = os.getenv("PINECONE_REGION", "us-east-1")
